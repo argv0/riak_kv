@@ -89,6 +89,7 @@ remove_node(Node) when is_atom(Node) ->
 
 -spec(status([]) -> ok).
 status([]) ->
+    riak_kv_status:ringready(),
     try
         case riak_kv_status:statistics() of
             [] ->
